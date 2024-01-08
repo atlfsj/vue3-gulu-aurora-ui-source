@@ -1,38 +1,41 @@
 <template>
     <div class="topnav">
-    <div class="logo">LOGO</div>
-    <ul class="menu">
-      <li>菜单1</li>
-      <li>菜单2</li>
-    </ul>
-    <span class="toggleAside" @click="toggleAside"></span>
-  </div>
+        <div class="logo">LOGO</div>
+        <ul class="menu">
+            <li>菜单1</li>
+            <li>菜单2</li>
+        </ul>
+        <span class="toggleAside"  @click="toggleAside"></span>
+    </div>
 </template>
 
 <script lang="ts">
 import { Ref, inject } from 'vue';
-
-export default {    
-  setup(){
-    const asideVisible = inject<Ref<boolean>>('asideVisible')  // get
-    console.log('topnav 获取的 asideVisible 为：' + asideVisible?.value)    
-    const toggleAside = () => {
-      asideVisible.value = !asideVisible.value
-    }
-    return {toggleAside}
-  }
+export default {
+  setup() {
+      const asideVisible = inject<Ref<boolean>>('xxx')
+      console.log('topnav 获取的 asideVisible 值为' + asideVisible.value)
+      const toggleAside = ()=> {
+        asideVisible.value = !asideVisible.value
+        console.log('click')
+      }  
+      return {toggleAside}
+    }   
 }
 </script>
 
 <style lang="scss" scoped>
 .topnav {
-    background: pink;
+    background: rgb(42, 235, 141);
     display: flex;
     padding: 16px;
-    position: relative;
-    z-index: 10;
     justify-content: center;
     align-items: center;
+    z-index: 10;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     > .logo {
       max-width: 6em;
       margin-right: auto;
@@ -45,10 +48,10 @@ export default {
         margin: 0 1em;
       }
     }
-    > .toggleAside{
+    > .toggleAside {
       width: 24px;
       height: 24px;
-      background: red;
+      background: purple;
       position: absolute;
       left: 16px;
       top: 50%;

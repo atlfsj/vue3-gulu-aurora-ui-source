@@ -65,10 +65,9 @@ export default {
   > main {
     flex-grow: 1;
     padding: 16px;
-    background: lightgreen;
+    background: white;
   }
 }
-
 aside {
   background: lightblue;
   width: 150px;
@@ -85,12 +84,6 @@ aside {
     > li {
       padding: 4px 0;
     }
-  }
-  @media (max-width: 500px) { // 手机需要绝对定位
-    position: fixed;
-    top: 0;
-    left: 0;
-    padding-top: 70px;
   }
 }
 main {

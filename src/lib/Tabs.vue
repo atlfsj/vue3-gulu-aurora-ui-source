@@ -16,8 +16,6 @@ import Tab from './Tab.vue'
 import {
     computed,
     ref,
-    onMounted,
-    onUpdated,
     watchEffect
 } from 'vue'
 export default {

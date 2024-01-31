@@ -16,7 +16,8 @@ import Tab from './Tab.vue'
 import {
     computed,
     ref,
-    watchEffect
+    watchEffect,
+    onMounted
 } from 'vue'
 export default {
     props: {
@@ -28,19 +29,21 @@ export default {
     const selectedItem = ref < HTMLDivElement > (null)
     const indicator = ref < HTMLDivElement > (null)
     const container = ref < HTMLDivElement > (null)
-    watchEffect(() => {
+    onMounted(() => {
+        watchEffect(() => {
         const {
-        width
+            width
         } = selectedItem.value.getBoundingClientRect()
         indicator.value.style.width = width + 'px'
         const {
-        left: left1
+            left: left1
         } = container.value.getBoundingClientRect()
         const {
-        left: left2
+            left: left2
         } = selectedItem.value.getBoundingClientRect()
         const left = left2 - left1
         indicator.value.style.left = left + 'px'
+        })
     })
 
     const defaults = context.slots.default()
@@ -48,11 +51,6 @@ export default {
         if (tag.type !== Tab) {
         throw new Error('Tabs 子标签必须是 Tab')
         }
-    })
-    const current = computed(() => {
-        return defaults.filter((tag) => {
-        return tag.props.title === props.selected
-        })[0]
     })
     const titles = defaults.map((tag) => {
         return tag.props.title
@@ -63,7 +61,6 @@ export default {
     return {
         defaults,
         titles,
-        current,
         select,
         selectedItem,
         indicator,

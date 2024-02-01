@@ -1,7 +1,7 @@
 <template>
     <div class="layout">
-    <Topnav class="nav" />
-    <div class="content">
+      <Topnav toggleMenuButtonVisible class="nav" />    
+      <div class="content">
         <aside v-if="asideVisible"> 
             <h2>列表组件</h2>
             <ol>
@@ -22,7 +22,7 @@
         <main>
             <router-view />
         </main>
-    </div>
+      </div>
     </div>
 </template>
 

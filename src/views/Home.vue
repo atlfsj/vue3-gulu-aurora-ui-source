@@ -1,4 +1,5 @@
 <template>
+  <div>
     <div class="topnavAndBanner">
       <Topnav />
       <div class="banner">
@@ -10,6 +11,18 @@
         </p>
       </div>
     </div>
+    <div class="features">
+      <svg class="icon">
+        <use xlink:href="#icon-vue"></use>
+      </svg>
+      <svg class="icon">
+        <use xlink:href="#icon-ts"></use>
+      </svg>
+      <svg class="icon">
+        <use xlink:href="#icon-light"></use>
+      </svg>
+    </div>
+  </div>
 </template>
 
 <script lang="ts">
@@ -25,6 +38,12 @@ $border-radius: 4px;
 $color: #095f5b;
 .topnavAndBanner{
   background: linear-gradient(145deg, rgba(179,255,253,1) 0%, rgba(183,233,230,1) 100%);
+}
+.features {
+  >svg {
+    width: 64px;
+    height: 64px;
+  }
 }
 .banner {
   color: $color;

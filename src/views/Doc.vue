@@ -103,11 +103,10 @@ aside {
       }
       .router-link-active {
         background: white;
-      }        
       }
     }
   }
-
+}
 main {
   overflow: auto;
 }
